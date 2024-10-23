@@ -5,16 +5,21 @@ const app = createApp({
         const cart = ref([])
         const premium = ref(true)
         function updateCart(id) {
-            cart.value.push(id)
+            cart.value.push(id);
+        }
+        function addReview(review){
+            reviews.value.push(review);
         }
         return {
             cart,
             premium,
-            updateCart
+            updateCart,
+            addReview
         }
     }
 })
 
 app.component('product-display', productDisplay)
+app.component('review-list',reviewList)
 
 app.mount('#app')
