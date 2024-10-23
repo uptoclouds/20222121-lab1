@@ -14,7 +14,7 @@
     <div id="app">
         <div class="nav-bar"></div>
         <div class="cart">Cart({{ cart }})</div>
-        <product-display></product-display>
+        <product-display :premium="premium" @add-to-cart="updateCart"></product-display>
     </div>
 
     <!-- Import Js -->
