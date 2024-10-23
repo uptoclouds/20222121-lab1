@@ -113,6 +113,31 @@ p {
   width: 50%;
 }
 
+.product-image {
+  position: relative; /* 设置容器为相对定位 */
+  display: inline-block; /* 使其根据内容自适应 */
+}
+
+.product-image img {
+  display: block; /* 确保图片是块级元素，去掉底部间隙 */
+}
+
+.product-image .overlay {
+  position: absolute; /* 设置覆盖层为绝对定位 */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(128, 128, 128, 0.5); /* 半透明灰色背景 */
+  opacity: 0; /* 默认隐藏 */
+  transition: opacity 0.3s ease; /* 添加过渡效果 */
+}
+
+/* 当添加 'grayscale' 类时，显示覆盖层 */
+.product-image.grayscale .overlay {
+  opacity: 1; /* 显示覆盖层 */
+}
+
 .review-form {
   display: flex;
   flex-direction: column;
