@@ -1,3 +1,5 @@
+const { reactive,toRefs, defineComponent } = Vue;
+
 const reviewForm = {
     template:
         /*html*/

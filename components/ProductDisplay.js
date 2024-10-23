@@ -42,6 +42,7 @@ const productDisplay = {
         const product = ref('Boots')
         const brand = ref('SE 331')
         const inventory = ref(100)
+        const reviews = ref([])
         const details = ref([
             '50% cotton',
             '30% wool',
@@ -71,16 +72,21 @@ const productDisplay = {
         function updateImage(variantImage) {
             image.value = variantImage;
         }
+        function addReview(review){
+            reviews.value.push(review)
+        }
         return {
             title,
             image,
             inStock,
             inventory,
+            reviews,
             details,
             variants,
             addToCart,
             updateImage,
             updateVariant,
+            addReview,
             shipping
         }
     }

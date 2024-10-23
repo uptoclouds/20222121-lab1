@@ -7,19 +7,16 @@ const app = createApp({
         function updateCart(id) {
             cart.value.push(id);
         }
-        function addReview(review){
-            reviews.value.push(review);
-        }
         return {
             cart,
             premium,
-            updateCart,
-            addReview
+            updateCart
         }
     }
 })
 
-app.component('product-display', productDisplay)
-app.component('review-list',reviewList)
-
+app.component('product-display', productDisplay);
+app.component('review-form',reviewForm);
+app.component('review-list',reviewList);
 app.mount('#app')
+
