@@ -92,6 +92,10 @@ li {
   opacity:0.5
 }
 
+.gray-image {
+  filter: grayscale(100%) contrast(140%) brightness(80%)
+}
+
 p {
   font-size: 22px;
 }
