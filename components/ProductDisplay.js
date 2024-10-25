@@ -20,9 +20,7 @@ const productDisplay = {
                 <p v-else-if="inventory === 1" class="out-sale">Out of Stock lab 6.7</p>
                 <p v-else-if="inventory === 0" class="none-sale">Pleace select to showing states lab 6.7</p>
                 <p>Shipping: {{shipping}} $</p>
-                <ul>
-                    <li v-for="detail in details">{{detail}}</li>
-                </ul>
+                <product-details :details="details"></product-details>
                 <div class="sizes">
                     <h3>lab 5.5 Size: {{ currentSizes }}</h3>
                 </div>
