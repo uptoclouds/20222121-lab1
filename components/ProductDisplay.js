@@ -11,26 +11,26 @@ const productDisplay = {
             <div class="product-info">
                 <h1>{{title}}</h1>
                 <p>
-                    <a v-bind:href="productLink" target="_blank">To camt(lab 3.6)</a>
+                    <a v-bind:href="productLink" target="_blank">To camt lab</a>
                 </p>
-                <p v-if="onSale" class="sale">On Sale lab 4.9</p>
-                <p v-else class="not-sale">Not on Sale lab 4.9</p>
-                <p v-if="inventory === 3" class="sale">In Stock lab 6.7</p>
-                <p v-else-if="inventory === 2" class="almost_out-sale">Almost out of Stock lab 6.7</p>
-                <p v-else-if="inventory === 1" class="out-sale">Out of Stock lab 6.7</p>
-                <p v-else-if="inventory === 0" class="none-sale">Pleace select to showing states lab 6.7</p>
+                <p v-if="onSale" class="sale">On Sale</p>
+                <p v-else class="not-sale">Not on Sale</p>
+                <p v-if="inventory === 3" class="sale">In Stock</p>
+                <p v-else-if="inventory === 2" class="almost_out-sale">Almost out of Stock</p>
+                <p v-else-if="inventory === 1" class="out-sale">Out of Stock</p>
+                <p v-else-if="inventory === 0" class="none-sale">Pleace select to showing states</p>
                 <p>Shipping: {{shipping}} $</p>
                 <product-details :details="details"></product-details>
                 <div class="sizes">
-                    <h3>lab 5.5 Size: {{ currentSizes }}</h3>
+                    <h3>Size: {{ currentSizes }}</h3>
                 </div>
                 <div v-for="(variant,index) in variants" :key="variant.id" @mouseover="updateVariant(index)"
                     class="color-circle" :style="{backgroundColor: variant.color}">
                 </div>
                 <button class="button" :disabled='!inStock' @click="addToCart" :class="{disabledButton: !inStock}">Add To
                     Cart</button>
-                <button class="button" v-if="cartQuantity >= 0" @click="removeFromCart">lab 10.6 Remove from Cart</button>
-                <button class="button" @click="toggleStockStatus">lab 6.7 Toggle Stock Status</button>
+                <button class="button" v-if="cartQuantity >= 0" @click="removeFromCart">Remove from Cart</button>
+                <button class="button" @click="toggleStockStatus">Update Stock Status</button>
             </div>
             <review-list v-if="reviews.length" :reviews="reviews"></review-list>
             <review-form @review-submitted="addReview"></review-form>
@@ -75,14 +75,14 @@ const productDisplay = {
             return variants.value[selectedVariant.value].quantity
         })
         const inchange = computed(() => {
-            return variants.value[selectedVariant.value].quantity > 0; // 返回布尔值
+            return variants.value[selectedVariant.value].quantity > 0; 
         });
         const currentSizes = computed(() => {
-            return variants.value[selectedVariant.value].sizes; // 获取当前选中变体的尺寸
+            return variants.value[selectedVariant.value].sizes; 
         });
         const cartQuantity = computed(() => {
-            const variantId = variants.value[selectedVariant.value]?.id; // 确保 id 存在
-            return variantId && props.cart ? (props.cart[variantId] || 0) : 0; // 添加防护
+            const variantId = variants.value[selectedVariant.value]?.id; 
+            return variantId && props.cart ? (props.cart[variantId] || 0) : 0; 
         });
 
         function addToCart() {
