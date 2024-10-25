@@ -13,9 +13,17 @@
 <body>
     <div id="app">
         <div class="nav-bar"></div>
-        <div class="cart">Cart({{ cart }})</div>
-        <product-display :premium="premium" @add-to-cart="updateCart"></product-display>
+        <div class="cart">
+            <h2>Cart lab 10.5</h2>
+            <ul>
+                <li v-for="(quantity, id) in cart" :key="id">
+                    Product ID: {{ id }} - Quantity: {{ quantity }}
+                </li>
+            </ul>
+        </div>
+        <product-display :premium="premium" @add-to-cart="updateCart" @remove-from-cart="removeCart"></product-display>
     </div>
+
 
     <!-- Import Js -->
     <script src="./components/ProductDisplay.js"></script>

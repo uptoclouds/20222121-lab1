@@ -29,6 +29,7 @@ const productDisplay = {
                 </div>
                 <button class="button" :disabled='!inStock' @click="addToCart" :class="{disabledButton: !inStock}">Add To
                     Cart</button>
+                <button class="button" v-if="cartQuantity >= 0" @click="removeFromCart">lab 10.6 Remove from Cart</button>
                 <button class="button" @click="toggleStockStatus">lab 6.7 Toggle Stock Status</button>
             </div>
             <review-list v-if="reviews.length" :reviews="reviews"></review-list>
@@ -79,8 +80,19 @@ const productDisplay = {
         const currentSizes = computed(() => {
             return variants.value[selectedVariant.value].sizes; // 获取当前选中变体的尺寸
         });
+        const cartQuantity = computed(() => {
+            const variantId = variants.value[selectedVariant.value]?.id; // 确保 id 存在
+            return variantId && props.cart ? (props.cart[variantId] || 0) : 0; // 添加防护
+        });
+
         function addToCart() {
-            emit('add-to-cart', variants.value[selectedVariant.value].id)
+            const variantId = variants.value[selectedVariant.value].id;
+            emit('add-to-cart', variantId);
+        }
+
+        function removeFromCart() {
+            const variantId = variants.value[selectedVariant.value].id;
+            emit('remove-from-cart', variantId);
         }
         const title = computed(() => {
             return brand.value + ' ' + product.value + ' ' + 'is on sale'
@@ -115,12 +127,15 @@ const productDisplay = {
             reviews,
             details,
             variants,
+            cartQuantity,
             addToCart,
             updateImage,
             updateVariant,
             addReview,
+            removeFromCart,
             toggleStockStatus,
             shipping
         }
     }
 }
+
