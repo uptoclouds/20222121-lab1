@@ -18,7 +18,7 @@ const productDisplay = {
                 <p v-if="inventory === 3" class="sale">In Stock</p>
                 <p v-else-if="inventory === 2" class="almost_out-sale">Almost out of Stock</p>
                 <p v-else-if="inventory === 1" class="out-sale">Out of Stock</p>
-                <p v-else-if="inventory === 0" class="none-sale">Pleace select to showing states</p>
+                <p v-else-if="inventory === 0" class="none-sale">Pleace  click "Update Stock Status" to showing states</p>
                 <p>Shipping: {{shipping}} $</p>
                 <product-details :details="details"></product-details>
                 <div class="sizes">
