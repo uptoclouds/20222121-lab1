@@ -7,7 +7,7 @@ const app = createApp({
         
         function updateCart(id) {
             if (!cart.value[id]) {
-                cart.value[id] = 0; // 初始化数量为0
+                cart.value[id] = 0; 
             }
             cart.value[id]++;
         }
@@ -16,7 +16,7 @@ const app = createApp({
             if (cart.value[id]) {
                 cart.value[id]--;
                 if (cart.value[id] <= 0) {
-                    delete cart.value[id]; // 数量为0时删除
+                    delete cart.value[id]; 
                 }
             }
         }
